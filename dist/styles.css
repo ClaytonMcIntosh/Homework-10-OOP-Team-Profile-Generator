@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+}
+
+:root {
+  --back: #f9efec;
+  --red: #cb4d62;
+  --yellow: #f2c76e;
+  --darkpurple: #54447b;
+  --lightpurple: #bd9dea;
+}
+
+body {
+  background-color: var(--back);
+}
+
+header {
+  background-color: var(--red);
+}
+
+h1 {
+  text-align: center;
+  padding: 3%;
+  font-family: Geneva, Tahoma, sans-serif;
+  color: white;
+}
+
+#flexy {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: var(--yellow);
+  margin-top: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 300px;
+}
+
+.cardheadmanager,
+.cardheadIntern,
+.cardheadEngineer {
+  padding: 10px;
+  font-family: Geneva, Tahoma, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.cardheadmanager {
+  background-color: var(--red);
+}
+
+.cardheadEngineer {
+  background-color: var(--darkpurple);
+}
+
+.cardheadIntern {
+  background-color: var(--lightpurple);
+}
+
+.input {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  margin-top: 10px;
+  color: var(--darkpurple);
+}
+
+a:link,
+a:visited {
+  color: var(--red);
+  text-decoration: none;
+}
+
+.cardmid {
+  margin: 20px;
+}

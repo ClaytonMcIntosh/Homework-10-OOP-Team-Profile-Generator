@@ -155,33 +155,54 @@ function addIntern() {
 }
 
 function createDivs() {
-  for (i = 0; i < teamArray.length; i++) {
-    let div = `<div style="background-color: lightblue">
-          <div style="background-color: blue">${teamArray[i].name}</div>
-          Id: N/A
-          <br>
-          Email: N/A
-          <br>
-          Office number: N/A
-        </div>`;
+  for (i = 1; i < teamArray.length; i++) {
+    let div = `<div class="card">
+    <div class="cardhead${teamArray[i].constructor.name}">
+      <h2>${teamArray[i].name}</h2>
+      <h3>${teamArray[i].constructor.name}</h3>
+    </div>
+    <div class="cardmid">
+      <p class="input">ID: ${teamArray[i].id}</p>
+      <p class="input">Email: <a href="${teamArray[i].email}">${teamArray[i].email}</a></p>
+      <p class="input">Github: ${teamArray[i].GitHub}</p>
+    </div>
+    </div>`;
     divs.push(div);
   }
 }
 
 function createHtml() {
   html = `<!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-      </head>
-      <body>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="styles.css" />
+      <title>My Team</title>
+    </head>
+    <body>
+      <header>
         <h1>My Team</h1>
-        ${divs}
-      </body>
-    </html>`;
+        </header>
+         <div id="flexy">
+          <div class="card">
+            <div class="cardheadmanager">
+              <h2>${teamArray[0].name}</h2>
+              <h3>Manager</h3>
+            </div>
+              <div class="cardmid">
+                <p class="input">ID: ${teamArray[0].id}</p>
+                <p class="input">
+                  Email: <a href="mailto:${teamArray[0].email}">${teamArray[0].email}</a>
+                </p>
+                <p class="input">Office number: ${teamArray[0].officeNumber}</p>
+                </div>
+                </div>
+                ${divs}
+        </div>
+        </body>
+        </html>`;
 }
 
 function finish() {
