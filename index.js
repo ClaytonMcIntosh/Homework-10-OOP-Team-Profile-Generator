@@ -4,6 +4,7 @@ const fs = require("fs");
 const teamArray = [];
 const divs = [];
 let html;
+let div;
 
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
@@ -156,7 +157,20 @@ function addIntern() {
 
 function createDivs() {
   for (i = 1; i < teamArray.length; i++) {
-    let div = `<div class="card">
+    if (teamArray[i].school === undefined) {
+      div = `<div class="card">
+      <div class="cardhead${teamArray[i].constructor.name}">
+        <h2>${teamArray[i].name}</h2>
+        <h3>${teamArray[i].constructor.name}</h3>
+      </div>
+      <div class="cardmid">
+        <p class="input">ID: ${teamArray[i].id}</p>
+        <p class="input">Email: <a href="${teamArray[i].email}">${teamArray[i].email}</a></p>
+        <p class="input">Github Name: ${teamArray[i].github}</p>        
+      </div>
+      </div>`;
+    } else {
+      div = `<div class="card">
     <div class="cardhead${teamArray[i].constructor.name}">
       <h2>${teamArray[i].name}</h2>
       <h3>${teamArray[i].constructor.name}</h3>
@@ -164,9 +178,10 @@ function createDivs() {
     <div class="cardmid">
       <p class="input">ID: ${teamArray[i].id}</p>
       <p class="input">Email: <a href="${teamArray[i].email}">${teamArray[i].email}</a></p>
-      <p class="input">Github: ${teamArray[i].GitHub}</p>
+      <p class="input">School: ${teamArray[i].school}</p>
     </div>
     </div>`;
+    }
     divs.push(div);
   }
 }
