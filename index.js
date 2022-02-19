@@ -1,5 +1,17 @@
 const inquirer = require("inquirer");
 
+const Employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+
+
+function Employee(word) {
+    this.
+}
+
+
+
 addManager();
 
 function addManager() {}
@@ -19,6 +31,7 @@ inquirer
       type: "input",
       name: "managerEmail",
       message: "What is the manager's email address?",
+      validate: inserValidaterorFunctionhere!!!!!!
     },
     {
       type: "input",
@@ -139,3 +152,5 @@ function addIntern() {
 function finish() {
   console.log("Finish building team");
 }
+
+
