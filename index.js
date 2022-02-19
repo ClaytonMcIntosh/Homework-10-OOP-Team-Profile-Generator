@@ -1,63 +1,78 @@
 const inquirer = require("inquirer");
 
-const Employee = require("./lib/Employee");
+teamArray = [];
+
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
-
-function Employee(word) {
-    this.
+function init() {
+  addManager();
 }
 
+function addManager() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "managerName",
+        message: "What is the manager's name?",
+      },
+      {
+        type: "input",
+        name: "managerId",
+        message: "What is the manager's employee ID?",
+      },
+      {
+        type: "input",
+        name: "managerEmail",
+        message: "What is the manager's email address?",
+        //   validate: inserValidaterorFunctionhere!!!!!!
+      },
+      {
+        type: "input",
+        name: "managerOfficeNumber",
+        message: "What is the manager's office number?",
+      },
+    ])
+    .then((response) => {
+      //add manager
+      const manager = new Manager(
+        response.managerName,
+        response.managerId,
+        response.managerEmail,
+        response.managerOfficeNumber
+      );
+      teamArray.push(manager);
+      //run next function
+      addTeamMember();
+    });
+}
 
-
-addManager();
-
-function addManager() {}
-inquirer
-  .prompt([
-    {
-      type: "input",
-      name: "managerName",
-      message: "What is the manager's name?",
-    },
-    {
-      type: "input",
-      name: "managerId",
-      message: "What is the manager's employee ID?",
-    },
-    {
-      type: "input",
-      name: "managerEmail",
-      message: "What is the manager's email address?",
-      validate: inserValidaterorFunctionhere!!!!!!
-    },
-    {
-      type: "input",
-      name: "managerOfficeNumber",
-      message: "What is the manager's office number?",
-    },
-    {
-      type: "list",
-      name: "managerTeam",
-      message: "Do you want to add any members to the manager's team?",
-      choices: ["Engineer", "Intern", "Finish building team"],
-    },
-  ])
-  .then((response) => {
-    switch (response.managerTeam) {
-      case "Engineer":
-        addEngineer();
-        break;
-      case "Intern":
-        addIntern();
-        break;
-      case "Finish building team":
-        finish();
-        break;
-    }
-  });
+function addTeamMember() {
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "managerTeam",
+        message: "Do you want to add any members to the manager's team?",
+        choices: ["Engineer", "Intern", "Finish building team"],
+      },
+    ])
+    .then((response) => {
+      switch (response.managerTeam) {
+        case "Engineer":
+          addEngineer();
+          break;
+        case "Intern":
+          addIntern();
+          break;
+        case "Finish building team":
+          finish();
+          break;
+      }
+    });
+}
 
 function addEngineer() {
   inquirer
@@ -82,25 +97,18 @@ function addEngineer() {
         name: "engineerGitHub",
         message: "What is the engineer's GitHub username?",
       },
-      {
-        type: "list",
-        name: "addMember",
-        message: "Do you want to add any members to the manager's team?",
-        choices: ["Engineer", "Intern", "Finish building team"],
-      },
     ])
     .then((response) => {
-      switch (response.addMember) {
-        case "Engineer":
-          addEngineer();
-          break;
-        case "Intern":
-          addIntern();
-          break;
-        case "Finish building team":
-          finish();
-          break;
-      }
+      //add engineer
+      const engineer = new Engineer(
+        response.engineerName,
+        response.engineerId,
+        response.engineerEmail,
+        response.engineerGitHub
+      );
+      teamArray.push(engineer);
+      //run next function
+      addTeamMember();
     });
 }
 
@@ -124,33 +132,27 @@ function addIntern() {
       },
       {
         type: "input",
-        name: "internGitHub",
-        message: "What is the intern's GitHub username?",
-      },
-      {
-        type: "list",
-        name: "addMember",
-        message: "Do you want to add any members to the manager's team?",
-        choices: ["Engineer", "Intern", "Finish building team"],
+        name: "internSchool",
+        message: "What is the intern's school?",
       },
     ])
+
     .then((response) => {
-      switch (response.addMember) {
-        case "Engineer":
-          addEngineer();
-          break;
-        case "Intern":
-          addIntern();
-          break;
-        case "Finish building team":
-          finish();
-          break;
-      }
+      //add intern
+      const intern = new Intern(
+        response.internName,
+        response.internId,
+        response.internEmail,
+        response.internSchool
+      );
+      teamArray.push(intern);
+      //run next function
+      addTeamMember();
     });
 }
 
 function finish() {
-  console.log("Finish building team");
+  console.log(teamArray);
 }
 
-
+init();
