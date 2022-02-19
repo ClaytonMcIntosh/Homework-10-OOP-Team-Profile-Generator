@@ -1,6 +1,9 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 
-teamArray = [];
+const teamArray = [];
+const divs = [];
+let html;
 
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
@@ -151,8 +154,49 @@ function addIntern() {
     });
 }
 
+function createDivs() {
+  for (i = 0; i < teamArray.length; i++) {
+    let div = `<div style="background-color: lightblue">
+          <div style="background-color: blue">${teamArray[i].name}</div>
+          Id: N/A
+          <br>
+          Email: N/A
+          <br>
+          Office number: N/A
+        </div>`;
+    divs.push(div);
+  }
+}
+
+function createHtml() {
+  html = `<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+      </head>
+      <body>
+        <h1>My Team</h1>
+        ${divs}
+      </body>
+    </html>`;
+}
+
 function finish() {
-  console.log(teamArray);
+  createDivs();
+  createHtml();
+  writeHtml();
+}
+
+function writeHtml() {
+  fs.writeFile("./dist/index.html", html, function (err) {
+    if (err) {
+      return console.log("Sorry, an ERROR occurred. Please try again.");
+    }
+    console.log("index.html created sucessfully!");
+  });
 }
 
 init();
