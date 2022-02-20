@@ -164,7 +164,7 @@ function createDivs() {
       </div>
       <div class="cardmid">
         <p class="input">ID: ${teamArray[i].id}</p>
-        <p class="input">Email: <a href="${teamArray[i].email}">${teamArray[i].email}</a></p>
+        <p class="input">Email: <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a></p>
         <p class="input">Github Name: <a href="https://github.com/${teamArray[i].github}">${teamArray[i].github}</a></p>        
       </div>
       </div>`;
@@ -176,7 +176,7 @@ function createDivs() {
     </div>
     <div class="cardmid">
       <p class="input">ID: ${teamArray[i].id}</p>
-      <p class="input">Email: <a href="${teamArray[i].email}">${teamArray[i].email}</a></p>
+      <p class="input">Email: <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a></p>
       <p class="input">School: ${teamArray[i].school}</p>
     </div>
     </div>`;
