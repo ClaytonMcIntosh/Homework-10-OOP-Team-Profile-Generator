@@ -31,7 +31,6 @@ function addManager() {
         type: "input",
         name: "managerEmail",
         message: "What is the manager's email address?",
-        //   validate: inserValidaterorFunctionhere!!!!!!
       },
       {
         type: "input",
@@ -166,7 +165,7 @@ function createDivs() {
       <div class="cardmid">
         <p class="input">ID: ${teamArray[i].id}</p>
         <p class="input">Email: <a href="${teamArray[i].email}">${teamArray[i].email}</a></p>
-        <p class="input">Github Name: ${teamArray[i].github}</p>        
+        <p class="input">Github Name: <a href="https://github.com/${teamArray[i].github}">${teamArray[i].github}</a></p>        
       </div>
       </div>`;
     } else {
