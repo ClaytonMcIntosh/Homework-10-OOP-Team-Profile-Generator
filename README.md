@@ -40,6 +40,6 @@ This application is not deployed so here is a video walkthrough:
 
 ## Screenshot of generated HTML
 
-The following screenshot is of the html generated after running the application and responding to the prompts:
+The following screenshot is of the html generated after running the application and responding to the prompts. You can view the sample here: [Sample index file](./dist/index.html)
 
 ![ScreenShot](./img/screenshot.png)
