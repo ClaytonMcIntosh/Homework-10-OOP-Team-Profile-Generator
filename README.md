@@ -36,7 +36,7 @@ THEN I exit the application, and the HTML is generated
 
 This application is not deployed so here is a video walkthrough:
 
-[Homework 10 - OOP - Team Profile Generator](https://youtu.be/1RzKzJzBzjI)
+[Homework 10 - OOP - Team Profile Generator](https://youtu.be/CiFV0Zuy8RM)
 
 ## Screenshot of generated HTML
 
