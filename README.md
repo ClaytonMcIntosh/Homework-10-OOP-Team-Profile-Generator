@@ -1,4 +1,4 @@
-# Homework-10-OOP-Team-Profile-Generator
+# OOP - Team Profile Generator
 
 This week's homework involves creating html documents from data input by the user. This was done in node.js using the inquirer npm, as well as unit tested with the jest npm.
 
